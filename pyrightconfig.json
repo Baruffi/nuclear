@@ -1,0 +1,12 @@
+{
+  "executionEnvironments": [
+    {
+      "root": "api",
+      "pythonVersion": "3.8",
+      "pythonPlatform": "Windows",
+      "extraPaths": [
+        "api/model"
+      ]
+    }
+  ]
+}

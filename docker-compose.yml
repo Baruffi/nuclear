@@ -4,7 +4,7 @@ services:
   redis:
     image: redis
   api:
-    build: sensors
+    build: api
     ports:
       - "5001:5000"
     depends_on:
