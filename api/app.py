@@ -5,7 +5,7 @@ from model.sensors import TemperatureSensor
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
-sensor = TemperatureSensor(10, 5)
+sensor = TemperatureSensor('CALDEIRA_1', 1000, 10)
 
 
 @app.route('/')
