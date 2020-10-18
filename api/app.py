@@ -5,17 +5,18 @@ from model.sensors import TemperatureSensor
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
+sensor = TemperatureSensor(10, 5)
+
 
 @app.route('/')
 def hello():
     redis.incr('hits')
     return 'This Compose/Flask demo has been viewed %s time(s).' % redis.get('hits')
 
-
-@app.route('/temperature')
-def temperature():
-    sensor = TemperatureSensor(10)
-    return sensor.read(1)
+@app.route('/temperature', defaults={'external': 0.0})
+@app.route('/temperature/<float:external>')
+def temperature(external):
+    return sensor.read(external)
 
 
 if __name__ == "__main__":
