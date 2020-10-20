@@ -16,12 +16,6 @@ services:
       - "3307:3306"
     privileged: true
     volumes:
-      # - ./db:/var/lib/mysql
       - data:/var/lib/mysql
 volumes:
   data:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: ./db
