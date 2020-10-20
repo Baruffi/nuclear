@@ -3,6 +3,15 @@ version: "3.8"
 services:
   redis:
     image: redis
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_DATABASE: "scadabr"
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db:/var/lib/mysql
   api:
     build: api
     ports:
@@ -10,18 +19,24 @@ services:
     depends_on:
       - redis
   web:
-    image: bitelxux/scadabr
+    build: web
     ports:
       - "8081:8080"
-      - "3307:3306"
     privileged: true
-    volumes:
-      # - ./db:/var/lib/mysql
-      - data:/var/lib/mysql
-volumes:
-  data:
-#     driver: local
-#     driver_opts:
-#       type: none
-#       o: bind
-#       device: ./db
+    depends_on:
+      - db
+#   web:
+#     image: bitelxux/scadabr
+#     ports:
+#       - "8081:8080"
+#     privileged: true
+#     volumes:
+#       # - ./db:/var/lib/mysql
+#       - data:/var/lib/mysql
+# volumes:
+#   data:
+# #     driver: local
+# #     driver_opts:
+# #       type: none
+# #       o: bind
+# #       device: ./db
