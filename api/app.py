@@ -1,5 +1,9 @@
 from flask import Flask, abort
+import logging.config
 from model.sensors import Sensor, PowerSensor, PressureSensor, FlowSensor, TemperatureSensor
+
+
+logging.config.fileConfig(fname='log.conf')
 
 app = Flask(__name__)
 
