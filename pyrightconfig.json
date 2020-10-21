@@ -2,11 +2,8 @@
   "executionEnvironments": [
     {
       "root": "api",
-      "pythonVersion": "3.8",
-      "pythonPlatform": "Windows",
-      "extraPaths": [
-        "api/model"
-      ]
+      "pythonVersion": "3.9",
+      "pythonPlatform": "Windows"
     }
   ]
 }
