@@ -28,15 +28,15 @@ def time_cycle(id: str, values: list[list[float, int]]):
 
                 if current_count >= current_delay:
                     redis.set(id + '_count', 0)
-                    redis.lpush(id + '_delay', redis.rpop(id + '_delay'))
-                    redis.lpush(id + '_cycle', redis.rpop(id + '_cycle'))
+                    redis.rpush(id + '_delay', redis.lpop(id + '_delay'))
+                    redis.rpush(id + '_cycle', redis.lpop(id + '_cycle'))
                 else:
                     redis.incr(id + '_count')
 
             logger.info('%s %f %f %f', id, current_cycle, current_delay,
                         current_count)
 
-            return func(*args, **kwargs, **{id: float(current_cycle)})
+            return func(*args, **kwargs, **{id: current_cycle})
 
         return decorated
 
