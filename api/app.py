@@ -23,14 +23,14 @@ def read(id: str, external: float):
 def startup():
     all_startups = {sensor.get_id(): 'startup' for sensor in sensors}
     redis.hmset('stage', all_startups)
-    return ('', 204)
+    return ('Sucess', 200)
 
 
 @app.route('/shutdown', methods=['POST'])
 def shutdown():
     all_shutdowns = {sensor.get_id(): 'shutdown' for sensor in sensors}
     redis.hmset('stage', all_shutdowns)
-    return ('', 204)
+    return ('Sucess', 200)
 
 
 if __name__ == '__main__':
