@@ -26,6 +26,13 @@ class Sensor(object):
             if not redis.hexists(modifier, self.id):
                 redis.hset(modifier, self.id, 0)
 
+            if not redis.hexists('reset', self.id):
+                redis.hset('reset', self.id, 0)
+
+            if int(redis.hget('reset', self.id)) == 1:
+                redis.hset(modifier, self.id, 0)
+                redis.hset('reset', self.id, 0)
+
             curent_stage = str(redis.hget('stage', self.id), 'utf-8')
             current_cycle = int(redis.hget(modifier, self.id))
 

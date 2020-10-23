@@ -1,7 +1,7 @@
 from redis import Redis
 from flask import Flask, abort
 import logging.config
-from provider.sensor_provider import sensors, get_sensor
+from provider.sensor_provider import get_sensor
 
 logging.config.fileConfig(fname='log.conf')
 
@@ -30,8 +30,9 @@ def startup():
 
             if str_value in ['shutdown', 'stopped']:
                 redis.hset('stage', str_key, 'startup')
+                redis.hset('reset', str_key, 1)
 
-    return ('Sucess', 200)
+    return ('Success', 200)
 
 
 @app.route('/shutdown', methods=['POST'])
@@ -45,8 +46,9 @@ def shutdown():
 
             if str_value in ['startup', 'running']:
                 redis.hset('stage', str_key, 'shutdown')
+                redis.hset('reset', str_key, 1)
 
-    return ('Sucess', 200)
+    return ('Success', 200)
 
 
 if __name__ == '__main__':
