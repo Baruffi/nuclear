@@ -38,36 +38,34 @@ def get_routine_stage(id: str, stage: str):
 
 
 def time_cycle(id: str):
-    with redis.lock('update'):
-        sensor = str(redis.get('sensor'), 'utf-8')
-        stage = str(redis.get('stage'), 'utf-8')
-        if not redis.hexists(id, sensor):
-            redis.hset(id, sensor, 0)
+    with redis.lock('setup'):
+        if not redis.exists(id):
+            redis.set(id, 0)
 
     def decorator(func):
         def decorated(*args, **kwargs):
-            routine_stage = get_routine_stage(id, stage)
-
             with redis.lock('update'):
-                current_cycle = int(redis.hget(id, sensor))
+                curent_stage = str(redis.get('stage'), 'utf-8')
+                current_cycle = int(redis.get(id))
+                routine_stage = get_routine_stage(id, curent_stage)
 
                 if current_cycle == len(routine_stage) - 1:
                     # if ended startup, auto-update to running
-                    if stage == 'startup':
+                    if curent_stage == 'startup':
                         redis.set('stage', 'running')
 
                     # if ended shutdown, auto-update to stopped
-                    if stage == 'shutdown':
+                    if curent_stage == 'shutdown':
                         redis.set('stage', 'stopped')
 
-                    redis.hset(id, sensor, 0)
+                    redis.set(id, 0)
                 else:
-                    redis.hincrby(id, sensor, 1)
+                    redis.incr(id)
 
             value = routine_stage[current_cycle]
 
-            logger.info('%s %s %s %d %f', id, sensor,
-                        stage, current_cycle, value)
+            logger.info('%s %s %d %f', id,
+                        curent_stage, current_cycle, value)
 
             return func(*args, **kwargs, **{id: value})
 
