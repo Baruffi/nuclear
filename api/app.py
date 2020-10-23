@@ -21,15 +21,31 @@ def read(id: str, external: float):
 
 @app.route('/startup', methods=['POST'])
 def startup():
-    all_startups = {sensor.get_id(): 'startup' for sensor in sensors}
-    redis.hmset('stage', all_startups)
+    with redis.lock('update'):
+        raw_stages = redis.hgetall('stage')
+
+        for key, value in raw_stages.items():
+            str_key = str(key, 'utf-8')
+            str_value = str(value, 'utf-8')
+
+            if str_value in ['shutdown', 'stopped']:
+                redis.hset('stage', str_key, 'startup')
+
     return ('Sucess', 200)
 
 
 @app.route('/shutdown', methods=['POST'])
 def shutdown():
-    all_shutdowns = {sensor.get_id(): 'shutdown' for sensor in sensors}
-    redis.hmset('stage', all_shutdowns)
+    with redis.lock('update'):
+        raw_stages = redis.hgetall('stage')
+
+        for key, value in raw_stages.items():
+            str_key = str(key, 'utf-8')
+            str_value = str(value, 'utf-8')
+
+            if str_value in ['startup', 'running']:
+                redis.hset('stage', str_key, 'shutdown')
+
     return ('Sucess', 200)
 
 
