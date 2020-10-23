@@ -21,10 +21,10 @@ class Sensor(object):
 
 class PowerSensor(Sensor):
 
-    @time_cycle('power_cycle', [[1.0, 4], [1.1, 3], [1.2, 2], [1.3, 1], [1.4, 1], [1.5, 20]])
-    def read(self, external: float, power_cycle: float):
+    @time_cycle('power_modifier')
+    def read(self, external: float, power_modifier: float):
         value = round(normalvariate(self.mean, self.variance)
-                      * power_cycle + external, 5)
+                      * power_modifier + external, 5)
 
         super_read = super().read(external)
 
@@ -37,10 +37,10 @@ class PowerSensor(Sensor):
 
 class PressureSensor(Sensor):
 
-    @time_cycle('pressure_cycle', [[1.5, 4], [1.4, 8], [1.3, 16], [1.2, 16], [1.05, 8], [1.1, 4]])
-    def read(self, external: float, pressure_cycle: float):
+    @time_cycle('pressure_modifier')
+    def read(self, external: float, pressure_modifier: float):
         value = round(normalvariate(self.mean, self.variance)
-                      * pressure_cycle + external, 5)
+                      * pressure_modifier + external, 5)
 
         super_read = super().read(external)
 
@@ -53,10 +53,10 @@ class PressureSensor(Sensor):
 
 class FlowSensor(Sensor):
 
-    @time_cycle('flow_cycle', [[1.5, 4], [1.4, 8], [1.3, 16], [1.2, 16], [1.1, 8], [1.0, 4]])
-    def read(self, external: float, flow_cycle: float):
+    @time_cycle('flow_modifier')
+    def read(self, external: float, flow_modifier: float):
         value = round(normalvariate(self.mean, self.variance)
-                      * flow_cycle + external, 5)
+                      * flow_modifier + external, 5)
 
         super_read = super().read(external)
 
@@ -69,10 +69,10 @@ class FlowSensor(Sensor):
 
 class TemperatureSensor(Sensor):
 
-    @time_cycle('temperature_cycle', [[1.0, 10], [1.1, 8], [1.2, 6], [1.3, 2], [1.2, 6], [1.1, 8]])
-    def read(self, external: float, temperature_cycle: float):
+    @time_cycle('temperature_modifier')
+    def read(self, external: float, temperature_modifier: float):
         value = round(normalvariate(self.mean, self.variance)
-                      * temperature_cycle + external, 5)
+                      * temperature_modifier + external, 5)
 
         super_read = super().read(external)
 
