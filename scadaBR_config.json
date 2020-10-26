@@ -285,7 +285,7 @@
    "dataPoints":[
       {
          "xid":"DP_058410",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -298,8 +298,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_653731",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.3793,
+               "weight":12.22,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE PRESSAO"
+            },
+            {
+               "xid":"PED_177715",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":-0.3793,
+               "weight":12.22,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE PRESSAO"
+            },
+            {
+               "xid":"PED_016511",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":20.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"PRESSAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"KILOPASCALS",
          "chartRenderer":null,
          "dataSourceXid":"DS_584445",
          "defaultCacheSize":1,
@@ -417,7 +446,7 @@
       },
       {
          "xid":"DP_861586",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -430,8 +459,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_440240",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.4199,
+               "weight":12.32,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE PRESSAO"
+            },
+            {
+               "xid":"PED_062901",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.4199,
+               "weight":12.32,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE PRESSAO"
+            },
+            {
+               "xid":"PED_170378",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":30.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"PRESSAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"KILOPASCALS",
          "chartRenderer":null,
          "dataSourceXid":"DS_365026",
          "defaultCacheSize":1,
@@ -549,7 +607,7 @@
       },
       {
          "xid":"DP_153494",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -563,27 +621,36 @@
          },
          "eventDetectors":[
             {
-               "xid":"PED_744331",
+               "xid":"PED_325815",
                "type":"POSITIVE_CUSUM",
-               "alarmLevel":"URGENT",
-               "limit":9.0,
-               "weight":1.0,
+               "alarmLevel":"INFORMATION",
+               "limit":87.22,
+               "weight":450.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"AUMENTO DE POTENCIA"
             },
             {
-               "xid":"PED_473623",
+               "xid":"PED_317741",
                "type":"NEGATIVE_CUSUM",
-               "alarmLevel":"URGENT",
-               "limit":9.0,
-               "weight":1.0,
+               "alarmLevel":"INFORMATION",
+               "limit":-87.22,
+               "weight":450.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"QUEDA DE POTENCIA"
+            },
+            {
+               "xid":"PED_715038",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":600.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"POTENCIA ALTA"
             }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"MEGAWATTS",
          "chartRenderer":null,
          "dataSourceXid":"DS_561625",
          "defaultCacheSize":1,
@@ -701,7 +768,7 @@
       },
       {
          "xid":"DP_807508",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -714,8 +781,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_482354",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":253.4,
+               "weight":29000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE VAZAO"
+            },
+            {
+               "xid":"PED_093945",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":-253.4,
+               "weight":29000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE VAZAO"
+            },
+            {
+               "xid":"PED_581730",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":40000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"VAZAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"TONS_PER_HOUR",
          "chartRenderer":null,
          "dataSourceXid":"DS_573750",
          "defaultCacheSize":1,
@@ -833,7 +929,7 @@
       },
       {
          "xid":"DP_591949",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -846,8 +942,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_691128",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":336.3,
+               "weight":30000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE VAZAO"
+            },
+            {
+               "xid":"PED_582896",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":336.3,
+               "weight":30000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE VAZAO"
+            },
+            {
+               "xid":"PED_665824",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":40000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"VAZAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"TONS_PER_HOUR",
          "chartRenderer":null,
          "dataSourceXid":"DS_778277",
          "defaultCacheSize":1,
@@ -965,7 +1090,7 @@
       },
       {
          "xid":"DP_742142",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -978,8 +1103,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_263165",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.2893,
+               "weight":6.35,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE PRESSAO"
+            },
+            {
+               "xid":"PED_436376",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.2893,
+               "weight":6.35,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE PRESSAO"
+            },
+            {
+               "xid":"PED_244695",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":20.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"PRESSAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"KILOPASCALS",
          "chartRenderer":null,
          "dataSourceXid":"DS_379065",
          "defaultCacheSize":1,
@@ -1097,7 +1251,7 @@
       },
       {
          "xid":"DP_089928",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -1110,8 +1264,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_609532",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.2927,
+               "weight":6.45,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE PRESSAO"
+            },
+            {
+               "xid":"PED_488348",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":0.2927,
+               "weight":6.45,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE PRESSAO"
+            },
+            {
+               "xid":"PED_142211",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":20.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"PRESSAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"KILOPASCALS",
          "chartRenderer":null,
          "dataSourceXid":"DS_598649",
          "defaultCacheSize":1,
@@ -1229,7 +1412,7 @@
       },
       {
          "xid":"DP_809451",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -1242,8 +1425,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_147175",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":350.4,
+               "weight":2900.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE VAZAO"
+            },
+            {
+               "xid":"PED_949756",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":350.4,
+               "weight":2900.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE VAZAO"
+            },
+            {
+               "xid":"PED_532319",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":4000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"VAZAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"TONS_PER_HOUR",
          "chartRenderer":null,
          "dataSourceXid":"DS_654661",
          "defaultCacheSize":1,
@@ -1361,7 +1573,7 @@
       },
       {
          "xid":"DP_753328",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -1374,8 +1586,37 @@
             "valueRegex":"\"value\":\"(.*?)\""
          },
          "eventDetectors":[
+            {
+               "xid":"PED_043595",
+               "type":"POSITIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":449.1,
+               "weight":3000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"AUMENTO DE VAZAO"
+            },
+            {
+               "xid":"PED_658064",
+               "type":"NEGATIVE_CUSUM",
+               "alarmLevel":"INFORMATION",
+               "limit":449.1,
+               "weight":3000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"QUEDA DE VAZAO"
+            },
+            {
+               "xid":"PED_413314",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":4000.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"VAZAO ALTA"
+            }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"TONS_PER_HOUR",
          "chartRenderer":null,
          "dataSourceXid":"DS_303631",
          "defaultCacheSize":1,
@@ -1493,7 +1734,7 @@
       },
       {
          "xid":"DP_185166",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -1507,27 +1748,36 @@
          },
          "eventDetectors":[
             {
-               "xid":"PED_777646",
+               "xid":"PED_565674",
                "type":"POSITIVE_CUSUM",
-               "alarmLevel":"URGENT",
-               "limit":0.7,
-               "weight":1.0,
+               "alarmLevel":"INFORMATION",
+               "limit":6.807,
+               "weight":210.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"AUMENTO DE TEMPERATURA"
             },
             {
-               "xid":"PED_370958",
+               "xid":"PED_839943",
                "type":"NEGATIVE_CUSUM",
-               "alarmLevel":"URGENT",
-               "limit":0.7,
-               "weight":1.0,
+               "alarmLevel":"INFORMATION",
+               "limit":6.807,
+               "weight":210.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"QUEDA DE TEMPERATURA"
+            },
+            {
+               "xid":"PED_334831",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":300.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"TEMPERATURA ALTA"
             }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"DEGREES_CELSIUS",
          "chartRenderer":null,
          "dataSourceXid":"DS_450004",
          "defaultCacheSize":1,
@@ -1645,7 +1895,7 @@
       },
       {
          "xid":"DP_923014",
-         "loggingType":"ON_CHANGE",
+         "loggingType":"ALL",
          "intervalLoggingPeriodType":"MINUTES",
          "intervalLoggingType":"INSTANT",
          "purgeType":"YEARS",
@@ -1659,27 +1909,36 @@
          },
          "eventDetectors":[
             {
-               "xid":"PED_493551",
+               "xid":"PED_736837",
                "type":"POSITIVE_CUSUM",
                "alarmLevel":"INFORMATION",
-               "limit":1.0,
-               "weight":1.0,
+               "limit":6.615,
+               "weight":200.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"AUMENTO DE TEMPERATURA"
             },
             {
-               "xid":"PED_904750",
+               "xid":"PED_454572",
                "type":"NEGATIVE_CUSUM",
                "alarmLevel":"INFORMATION",
-               "limit":1.0,
-               "weight":1.0,
+               "limit":6.615,
+               "weight":200.0,
                "durationType":"SECONDS",
-               "duration":11,
+               "duration":0,
                "alias":"QUEDA DE TEMPERATURA"
+            },
+            {
+               "xid":"PED_541659",
+               "type":"HIGH_LIMIT",
+               "alarmLevel":"LIFE_SAFETY",
+               "limit":300.0,
+               "durationType":"SECONDS",
+               "duration":0,
+               "alias":"TEMPERATURA ALTA"
             }
          ],
-         "engineeringUnits":"",
+         "engineeringUnits":"DEGREES_CELSIUS",
          "chartRenderer":null,
          "dataSourceXid":"DS_036193",
          "defaultCacheSize":1,
@@ -1951,6 +2210,160 @@
    "pointHierarchy":[
    ],
    "eventHandlers":[
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_153494",
+            "detectorXID":"PED_715038"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_POWER",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_923014",
+            "detectorXID":"PED_541659"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_TEMP2",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_185166",
+            "detectorXID":"PED_334831"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_TEMP",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_807508",
+            "detectorXID":"PED_581730"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_FLOW",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_058410",
+            "detectorXID":"PED_016511"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_PRESSURE",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_809451",
+            "detectorXID":"PED_532319"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_FLOW2",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_742142",
+            "detectorXID":"PED_244695"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_PRESSURE2",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_591949",
+            "detectorXID":"PED_665824"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_FLOW3",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_861586",
+            "detectorXID":"PED_170378"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_PRESSURE3",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_753328",
+            "detectorXID":"PED_413314"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_FLOW4",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      },
+      {
+         "eventType":{
+            "sourceType":"DATA_POINT",
+            "dataPointXID":"DP_089928",
+            "detectorXID":"PED_142211"
+         },
+         "xid":"EMERGENCY_SHUTDOWN_PRESSURE4",
+         "handlerType":"SET_POINT",
+         "targetPointId":"DP_928171",
+         "activeAction":"STATIC_VALUE",
+         "activeValueToSet":"1",
+         "inactiveAction":"NONE",
+         "alias":"DESLIGAMENTO DE EMERGENCIA"
+      }
    ],
    "watchLists":[
       {
