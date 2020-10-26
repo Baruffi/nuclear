@@ -28,7 +28,7 @@ def startup():
             str_key = str(key, 'utf-8')
             str_value = str(value, 'utf-8')
 
-            if str_value in ['shutdown', 'stopped']:
+            if str_value == 'stopped':
                 redis.hset('stage', str_key, 'startup')
                 redis.hset('reset', str_key, 1)
 
@@ -44,7 +44,7 @@ def shutdown():
             str_key = str(key, 'utf-8')
             str_value = str(value, 'utf-8')
 
-            if str_value in ['startup', 'running']:
+            if str_value == 'running':
                 redis.hset('stage', str_key, 'shutdown')
                 redis.hset('reset', str_key, 1)
 
